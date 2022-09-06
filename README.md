@@ -1,5 +1,7 @@
 # About
 
+[![Build status](https://github.com/rgl/postgres-entity-framework-core-example/workflows/build/badge.svg)](https://github.com/rgl/postgres-entity-framework-core-example/actions?query=workflow%3Abuild)
+
 This shows how to use PostgreSQL from an C# Entity Framework Core project.
 
 # Usage
