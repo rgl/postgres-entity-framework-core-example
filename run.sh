@@ -34,21 +34,21 @@ sleep 3
 psql <<'EOF'
 create database startrek;
 create role startrek_owner login password 'password';
-create role startrek_user;
+create role startrek_reader;
 revoke all privileges on database startrek from public;
 grant all privileges on database startrek to startrek_owner;
-grant connect on database startrek to startrek_user;
+grant connect on database startrek to startrek_reader;
 create role example login password 'password';
-grant startrek_user to example;
+grant startrek_reader to example;
 EOF
 
 # create database roles and privileges.
 psql <<'EOF'
 \c startrek
-grant usage on schema public to startrek_user;
-alter default privileges for role startrek_owner in schema public grant select on tables to startrek_user;
-alter default privileges for role startrek_owner in schema public grant select on sequences to startrek_user;
-alter default privileges for role startrek_owner in schema public grant execute on functions to startrek_user;
+grant usage on schema public to startrek_reader;
+alter default privileges for role startrek_owner in schema public grant select on tables to startrek_reader;
+alter default privileges for role startrek_owner in schema public grant select on sequences to startrek_reader;
+alter default privileges for role startrek_owner in schema public grant execute on functions to startrek_reader;
 EOF
 
 # migrate and seed the database.
