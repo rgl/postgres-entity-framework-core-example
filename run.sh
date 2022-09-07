@@ -55,12 +55,15 @@ EOF
 docker compose up --exit-code-from migrate migrate
 docker compose up --exit-code-from seed seed
 
-# list databases, tables, and privileges.
+# list roles, databases, relations, access privileges, and default access
+# privileges.
 psql <<'EOF'
 \c startrek
+\dg
 \l
 \d
 \dp
+\ddp
 EOF
 
 # use the database.
