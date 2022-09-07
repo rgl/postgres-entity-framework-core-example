@@ -27,8 +27,8 @@ export PGDATABASE=postgres
 export PGUSER=postgres
 export PGPASSWORD=password
 
-# TODO properly wait for postgres to be ready.
-sleep 3
+# wait for postgres to be ready.
+while ! psql <<<'select 1' >/dev/null 2>&1; do sleep 1; done
 
 # create database, global roles and privileges.
 psql <<'EOF'
