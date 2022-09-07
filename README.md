@@ -35,3 +35,9 @@ Destroy everything:
 ```bash
 docker compose down --volumes --remove-orphans --timeout=0
 ```
+
+# References
+
+* [Database Roles](https://www.postgresql.org/docs/14/user-manag.html)
+* [Privileges](https://www.postgresql.org/docs/14/ddl-priv.html)
+* [ALTER DEFAULT PRIVILEGES](https://www.postgresql.org/docs/14/sql-alterdefaultprivileges.html)
