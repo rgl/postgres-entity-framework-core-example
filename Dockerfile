@@ -6,12 +6,15 @@ COPY *.csproj ./
 RUN dotnet restore
 COPY *.cs Migrations ./
 RUN dotnet build \
+        --verbosity normal \
         --configuration Release \
         --no-restore
 RUN dotnet publish \
+        --verbosity normal \
         --configuration Release \
         --no-build
 RUN dotnet ef migrations bundle \
+        --verbose \
         --configuration Release \
         --output bin/example-migrate-database \
         --no-build
